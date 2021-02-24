@@ -61,3 +61,17 @@ public:
 
 };
 
+class Knight : public Piece {
+public:
+	Knight(bool white) : Piece(white) {
+
+	}
+	bool canMove(Board board, Spot start, Spot end) {
+		if (end.getPiece().isWhite() == this->isWhite()) {
+			return false;
+		}
+		int x = abs(start.getX() - end.getX());
+		int y = abs(start.getY() - end.getY());
+		return x * y == 2;
+	}
+};
