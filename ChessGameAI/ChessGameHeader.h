@@ -68,9 +68,22 @@ public:
         if (end.getPiece().isWhite() == this->isWhite()) {
             return false;
         }
-        //More logic to be added.
-
-
+        int start_x = start.getX();
+        int start_y = start.getY();
+        int end_x = end.getX();
+        int end_y = end.getY();
+        int abs_diffof_x = abs(end_x - start_x);
+        if(abs_diffof_x > 1) {
+            return false;
+        }
+        if (start_y + 1 != end_y) {
+            return false;
+        }
+        //This needs to be checked.
+        if (end.getPiece() != nullptr && abs_diffof_x == 0) {
+            return false;
+        }
+        return true;
     }
 
 };
