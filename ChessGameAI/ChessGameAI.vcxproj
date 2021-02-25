@@ -141,6 +141,9 @@
   <ItemGroup>
     <ClCompile Include="ChessGameAI.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChessGameHeader.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
