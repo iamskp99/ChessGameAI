@@ -7,12 +7,11 @@ private:
     Piece piece;
     int x;
     int y;
-
 public:
     //Constructor
-    Spot(int x, int y, Piece piece)
+    Spot(int x, int y, Piece p): piece(p)
     {
-        this->setPiece(piece);
+        this->setPiece(p);
         this->setX(x);
         this->setY(y);
     }
@@ -80,7 +79,7 @@ public:
             return false;
         }
         //This needs to be checked.
-        if (end.getPiece() != nullptr && abs_diffof_x == 0) {
+        if (end.getPiece() != NULL && abs_diffof_x == 0) {
             return false;
         }
         return true;
@@ -131,7 +130,7 @@ public:
 		this->castlingDone = castlingDone;
 	}
 	bool canMove(Board board, Spot start, Spot end) {
-		if (end.getPiece.isWhite() == this->isWhite()) {
+		if (end.getPiece().isWhite() == this->isWhite()) {
 			return false;
 		}
 		int x = abs(start.getX() - end.getX());
@@ -161,4 +160,22 @@ public:
 		int y = abs(start.getY() - end.getY());
 		return x * y == 2;
 	}
+};
+
+class Bishop : public Piece {
+public:
+    Bishop(bool white) : Piece(white) {
+
+    }
+    bool canMove(Board board, Spot start, Spot end) {
+        if (end.getPiece().isWhite() == this->isWhite()) {
+            return false;
+        }
+        int x = abs(start.getX() - end.getX());
+        int y = abs(start.getY() - end.getY());
+        if (x == y) {
+            // check if there is a piece blocking the way
+        }
+    }
+
 };
